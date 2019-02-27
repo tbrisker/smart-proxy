@@ -23,6 +23,8 @@ class DhcpLibvirtApiFeaturesTest < Test::Unit::TestCase
     mod = response['dhcp']
     refute_nil(mod)
     assert_equal([], mod['capabilities'])
-    assert_equal({}, mod['settings'])
+
+    expected_settings = {'use_provider' => 'dhcp_libvirt'}
+    assert_equal(expected_settings, mod['settings'])
   end
 end

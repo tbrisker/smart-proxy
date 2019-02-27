@@ -23,6 +23,8 @@ class PuppetApiFeaturesTest < Test::Unit::TestCase
     mod = response['puppet']
     refute_nil(mod)
     assert_equal([], mod['capabilities'])
-    assert_equal({}, mod['settings'])
+
+    expected_settings = {'use_provider' => ['puppet_proxy_puppet_api']}
+    assert_equal(expected_settings, mod['settings'])
   end
 end
